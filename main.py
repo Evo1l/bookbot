@@ -3,9 +3,9 @@ def main():
     text = get_book_text(book_path)
     num_words = get_num_words(text)
     letter_count = get_letter_count(text)
-    print(f"--- The report of {book_path} ---")
-    print(f"{num_words} words found in the book")
-    return(listed(letter_count))
+    print(f"--- Begin report of {book_path} ---")
+    print(f"{num_words} words found in the document")
+    listed(letter_count)
 
 def get_num_words(text):
     words = text.split()
@@ -29,12 +29,12 @@ def listed(letter_count):
         if letter.isalpha():
             quantity_list.append(quantity_dict)
     quantity_list.sort(reverse=True, key=sort_on)
-    return formatted(quantity_list)
+    formatted(quantity_list)
 
 def formatted(quantity_list):
     for item in quantity_list:
-        print(f"The {item["char"]} character was found {item["num"]} times")
-    print("--- End Report ---")
+        print(f"The '{item["char"]}' character was found {item["num"]} times")
+    print("--- End report ---")
 def sort_on(char_count):
     return char_count["num"]
 
